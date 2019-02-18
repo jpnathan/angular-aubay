@@ -1,7 +1,6 @@
-<label *ngIf="label" [attr.for]="id">
+<label *ngIf="label">
   {{ label }}
 </label>
-<input [attr.type]="type"
-       class="login__input"
-       [id]="id"
-       [attr.placeholder]="placeholder">
+<input [type]="type"
+       class="form-control input__general"
+       [placeholder]="placeholder">

@@ -28,7 +28,8 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.sass"
+              "node_modules/font-awesome-scss/scss/font-awesome.scss",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -136,5 +137,10 @@
       }
     }
   },
-  "defaultProject": "angular-aubay"
+  "defaultProject": "angular-aubay",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

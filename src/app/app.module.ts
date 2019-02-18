@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { ServicesModule } from './services/services.module';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ServicesModule } from './services/services.module';
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule.forRoot(),
-    ServicesModule.forRoot()
+    ServicesModule.forRoot(),
+    PagesModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
