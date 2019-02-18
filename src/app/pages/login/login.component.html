@@ -16,28 +16,36 @@
           </div>
         </div>
         <div class="login__main">
-          <form>
+          <form [formGroup]="formInstance"
+                (ngSubmit)="onSubmit()">
             <div>
               <app-form-input
+                [form]="form"
+                [formGroup]="formInstance"
+                [controlName]="'username'"
                 [placeholder]="'USERNAME'"
-                [type]="'text'">
+                [type]="'text'"
+                [required]="true"
+                [validValueMessage]="'Valid format: email@email.com.'"
+                [valueRequiredMessage]="'Email is required'">
               </app-form-input>
-              <span class="login__user--error" hidden>
-                Wrong email! Format: email@email.com
-              </span>
             </div>
             <div>
               <app-form-input
+                [form]="form"
+                [formGroup]="formInstance"
+                [controlName]="'password'"
                 [placeholder]="'PASSWORD'"
-                [type]="'text'">
+                [type]="'password'"
+                [required]="true"
+                [validValueMessage]="'Password must contain at least 5 characters.'"
+                [valueRequiredMessage]="'Password is required'">
               </app-form-input>
-              <span class="login__password--error" hidden>
-                  Wrong password! Must contain at least 5 characters.
-                </span>
             </div>
             <button class="button text--white"
                     id="submitButton"
-                    type="button">
+                    type="button"
+                    (click)="onSubmit()">
               Sign in
             </button>
             <div class="login__footer">

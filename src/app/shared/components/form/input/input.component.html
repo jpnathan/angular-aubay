@@ -1,6 +1,20 @@
-<label *ngIf="label">
-  {{ label }}
-</label>
-<input [type]="type"
-       class="form-control input__general"
-       [placeholder]="placeholder">
+<div [formGroup]="formGroup">
+  <label *ngIf="label">
+    {{ label }}
+  </label>
+  <input [type]="type"
+         [formControlName]="controlName"
+         class="form-control input__general"
+         [placeholder]="placeholder"
+         [required]="required">
+  <span
+    *ngIf="form.checkValidValue(formGroup.controls[controlName])"
+    class="login__password--error">
+    {{ validValueMessage }}
+  </span>
+  <span
+    class="login__user--error"
+    *ngIf="form.checkValueIsRequired(formGroup.controls[controlName])">
+    {{ valueRequiredMessage }}
+  </span>
+</div>
