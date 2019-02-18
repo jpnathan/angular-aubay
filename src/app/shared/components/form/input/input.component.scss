@@ -1,7 +1,18 @@
+@import "../../../../../assets/sass/variables";
+
 .input__general {
   margin: 1rem 0;
 
   &::placeholder {
     font-size: 12px;
   }
+}
+
+.form-control {
+  margin: 1rem 0 0 0;
+}
+
+.input--error {
+  color: $text-color-dark-red;
+  font-size: 12px;
 }

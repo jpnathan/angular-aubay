@@ -1,4 +1,4 @@
-<div [formGroup]="formGroup">
+<div [formGroup]="formGroup" class="form-group">
   <label *ngIf="label">
     {{ label }}
   </label>
@@ -9,11 +9,11 @@
          [required]="required">
   <span
     *ngIf="form.checkValidValue(formGroup.controls[controlName])"
-    class="login__password--error">
+    class="input--error">
     {{ validValueMessage }}
   </span>
   <span
-    class="login__user--error"
+    class="input--error"
     *ngIf="form.checkValueIsRequired(formGroup.controls[controlName])">
     {{ valueRequiredMessage }}
   </span>

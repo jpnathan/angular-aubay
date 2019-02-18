@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+
 import {
   ILoginForm,
   LoginForm,
@@ -12,6 +13,9 @@ import {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  private userValid = 'aubay@aubay.com';
+  private passwordValid = '12345';
+
   public form: ILoginForm;
   public formInstance: FormGroup;
   public formControls: ILoginFormControl;
@@ -29,10 +33,13 @@ export class LoginComponent implements OnInit {
   }
 
   public async onSubmit() {
-    const values = await this.form.onSubmit();
-
     if (!this.formInstance.valid) {
       return this.markAsTouchedWhenFormIsInvalid(this.formInstance);
+    }
+    const values = await this.form.onSubmit();
+
+    if (values.username === this.userValid && values.password === this.passwordValid) {
+      return window.location.assign('https://www.aubay.pt');
     }
   }
 
@@ -43,7 +50,5 @@ export class LoginComponent implements OnInit {
       const control = formInstance.controls[field];
       control.markAsTouched({ onlySelf: true });
     });
-
-    window.scroll(0, 0);
   }
 }

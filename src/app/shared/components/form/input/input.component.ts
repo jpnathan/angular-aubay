@@ -16,6 +16,4 @@ export class InputComponent {
   @Input() public required: boolean;
   @Input() public validValueMessage: boolean;
   @Input() public valueRequiredMessage: boolean;
-
-  constructor() {}
 }
