@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ILoginForm } from '../../../../forms/login';
 
 @Component({
   selector: 'app-form-input',
@@ -7,7 +8,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: [ './input.component.scss' ]
 })
 export class InputComponent {
-  @Input() public form: any;
+  @Input() public form: ILoginForm;
   @Input() public formGroup: FormGroup;
   @Input() public controlName: string;
   @Input() public type: string;

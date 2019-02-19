@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     return this.toastrService.error('Invalid username or password.', 'Login');
   }
 
-  public markAsTouchedWhenFormIsInvalid (formInstance: FormGroup) {
+  public markAsTouchedWhenFormIsInvalid(formInstance: FormGroup) {
     formInstance.markAsTouched();
 
     Object.keys(formInstance.controls).forEach(field => {
