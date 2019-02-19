@@ -8,3 +8,7 @@
 .text--white {
   color: $text-color-white;
 }
+
+#toast-container > div {
+  opacity: 1;
+}

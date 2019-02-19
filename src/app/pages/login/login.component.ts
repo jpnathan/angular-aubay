@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
+import { ToastrService } from 'ngx-toastr';
 import {
   ILoginForm,
   LoginForm,
@@ -20,7 +21,9 @@ export class LoginComponent implements OnInit {
   public formInstance: FormGroup;
   public formControls: ILoginFormControl;
 
-  constructor() { }
+  constructor(
+    private toastrService: ToastrService
+  ) { }
 
   ngOnInit() {
     this.initForm();
@@ -36,11 +39,16 @@ export class LoginComponent implements OnInit {
     if (!this.formInstance.valid) {
       return this.markAsTouchedWhenFormIsInvalid(this.formInstance);
     }
+
     const values = await this.form.onSubmit();
 
-    if (values.username === this.userValid && values.password === this.passwordValid) {
+    if (values.username === this.userValid &&
+      values.password === this.passwordValid) {
+      this.toastrService.success('Login successfully! Redirecting...', 'Login');
       return window.location.assign('https://www.aubay.pt');
     }
+
+    return this.toastrService.error('Invalid username or password.', 'Login');
   }
 
   public markAsTouchedWhenFormIsInvalid (formInstance: FormGroup) {

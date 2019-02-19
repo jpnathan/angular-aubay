@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent, InputComponent } from './form';
+import { InputComponent } from './form';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -10,12 +10,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   exports: [
-    InputComponent,
-    ButtonComponent
+    InputComponent
   ],
   declarations: [
-    InputComponent,
-    ButtonComponent
+    InputComponent
   ]
 })
 export class ComponentsModule {}
